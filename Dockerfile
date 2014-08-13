@@ -1,5 +1,5 @@
 FROM ubuntu:14.04
-MAINTAINER jeremyot@yix.io
+MAINTAINER jeremyot@gmail.com
 
 RUN apt-get update && apt-get install libtool autoconf automake build-essential g++ uuid-dev curl -y && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN mkdir -p /usr/lib/redis; mkdir -p /tmp/redis; curl http://download.redis.io/releases/redis-2.8.13.tar.gz > /tmp/redis/redis-2.8.13.tar.gz; cd /tmp/redis; tar xzf redis-2.8.13.tar.gz; mv redis-2.8.13/* /usr/lib/redis; cd /tmp; rm -rf /tmp/redis
