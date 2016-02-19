@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install autoconf automake build-essential g++ uuid
     apt-get remove --purge -y autoconf automake build-essential g++ uuid-dev curl; \
     apt-get autoremove --purge -y && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 COPY run.sh /usr/lib/redis/scripts/run.sh
-VOLUME ["/var/redis/data", "/var/redis/conf", "/var/logs"]
+COPY redis.conf /etc/redis-default/redis.conf
+VOLUME ["/var/lib/redis", "/etc/redis", "/var/log/redis"]
 EXPOSE 6379
 ENTRYPOINT ["/usr/lib/redis/scripts/run.sh"]
