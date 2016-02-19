@@ -7,7 +7,7 @@ case $1 in
     /usr/lib/redis/src/redis-cli "${@:2}"
     ;;
   *)
-    if [ -f $FILE ];
+    if [ -f $CONFIG_FILE ];
     then
       echo "Using config found at $CONFIG_FILE"
     else
